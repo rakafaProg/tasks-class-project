@@ -13,7 +13,7 @@ header {
     width: 300px;
     height: 50px;
     margin: 30px auto 15px;
-    
+
 }
 
 form {
@@ -21,23 +21,29 @@ form {
     width: 600px;
     padding: 10px 0 10px 85px;
     margin: auto;
-    
+
     * {
         width: 80%;
         margin: 10px auto;
         padding: 2px;
     }
-    
+
     input {
         width: 39%;
         margin-left: 0.5%;
     }
+    
+    .required {
+        color: rgba(255,0,0.0.5);
+        text-align: center;
+    }
 }
+
 
 main {
     margin: 10px auto;
     width: 95%;
-    
+
     .note {
         background-image: url('../images/notebg.png');
         height: 250px;
@@ -45,15 +51,14 @@ main {
         padding: 30px 15px 0 10px;
         float: left;
         margin: 10px;
-        
+
         .content {
             height: 170px;
             overflow-x: auto;
         }
-        
+
         .date-and-time {
             color: grey;
         }
     }
 }
-

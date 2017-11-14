@@ -28,6 +28,13 @@ form input {
   width: 39%;
   margin-left: 0.5%;
 }
+form .required {
+    border: 3px solid rgb(255,0,0);
+}
+form .error-msg {
+    color: rgb(255,0,0);
+    font-weight: 700;
+}
 main {
   margin: 10px auto;
   width: 95%;
