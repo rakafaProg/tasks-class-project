@@ -46,7 +46,6 @@ main .note {
   padding: 30px 15px 0 10px;
   float: left;
   margin: 10px;
-  position: relative;
 }
 main .note .content {
   height: 170px;
@@ -54,16 +53,4 @@ main .note .content {
 }
 main .note .date-and-time {
   color: grey;
-}
-main .note:hover .delete {
-  visibility: visible;
-}
-main .note .delete {
-  visibility: hidden;
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  color: #ff0000;
-  text-shadow: 2px 2px #660000;
-  cursor: pointer;
 }

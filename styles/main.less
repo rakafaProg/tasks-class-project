@@ -34,8 +34,12 @@ form {
     }
     
     .required {
-        color: rgba(255,0,0.0.5);
-        text-align: center;
+        border: 3px solid rgb(255,0,0);
+    }
+    
+    .error-msg {
+        color: rgb(255,0,0);
+        font-weight: 700;
     }
 }
 
@@ -51,6 +55,7 @@ main {
         padding: 30px 15px 0 10px;
         float: left;
         margin: 10px;
+        position: relative;
 
         .content {
             height: 170px;
@@ -59,6 +64,22 @@ main {
 
         .date-and-time {
             color: grey;
+        }
+        
+        &:hover .delete {
+            visibility: visible;
+        }
+        
+        .delete {
+            visibility: hidden;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            
+            color: rgb(255,0,0);
+            text-shadow: 2px 2px #660000;
+            
+            cursor: pointer;
         }
     }
 }
