@@ -1,7 +1,7 @@
 //(function () {
     "use strict";
     
-    const tasks = tasksModule('templates/task-template.html');
+    
     
     const FORM_ID = 'frmNotes';
     
@@ -15,6 +15,8 @@
     const dateHTML = document.getElementById('dateInput');
     const timeHTML = document.getElementById('timeInput');
 
+
+    const tasks = tasksModule('templates/task-template.html', containerHTML);
 
     // set up events:
     document.getElementById('btnSendForm').addEventListener('click', function (e) {
@@ -100,3 +102,7 @@ function saveHandler(e) {
     let taskContent = document.querySelector('div[data-task-id="'+taskId+'"] .content');
     tasks.updateTask(taskId, taskContent.value);
 }
+
+window.addEventListener('load', function(){
+    tasks.loadData();
+});

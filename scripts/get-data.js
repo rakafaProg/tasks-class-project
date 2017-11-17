@@ -20,7 +20,10 @@ function templateModule (url) {
         templateString = data;
     });
     
+    
+    
     function toHTML(task) {
+        
         let htmlString = templateString;
         htmlString = htmlString.replace('*content*', task.content);
         htmlString = htmlString.replace('*date*', task.date);
@@ -36,6 +39,16 @@ function templateModule (url) {
     return {
         toHTML: toHTML
     }
+}
+
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
 }
 
 
