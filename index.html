@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes</title>
+    <link href='https://fonts.googleapis.com/css?family=Annie Use Your Telescope' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
@@ -14,29 +16,28 @@
 
     <form novalidate id='frmNotes'>
 
-        <textarea rows="5" placeholder="Note content" required></textarea>
-        <input type="date" required>
-        <input type="time">
+        <textarea id='contentInput' rows="5" placeholder="Note content" required></textarea>
+        <input id='dateInput' type="date" required>
+        <input id='timeInput' type="time">
         <button id="btnSendForm">send</button>
         <div class="error-msg"></div>
     </form>
 
-    <main>
-        <div class="note">
-            <div class="delete">x</div>
-            <div class="content">
-                my very vey long note that is parcticly about nothing at all but still i need to fill it up so i can check that it works
+    <main id='container'>
+        <div>
+            <div class="note">
+                <i class="glyphicon glyphicon-trash delete" title="Click to delete task"></i>
+                <i class="glyphicon glyphicon-edit edit" title="Click to edit task"></i>
+                <div class="content">
+                    my very vey long note that is parcticly about nothing at aill i need to fill it up so i can check that it works
+                </div>
+                <div class="date-and-time">2017-11-08 20:55</div>
             </div>
-            <div class="date-and-time">20/05/2017 20:55</div>
         </div>
-        <div class="note"></div>
-        <div class="note"></div>
-        <div class="note"></div>
-        <div class="note"></div>
-        <div class="note"></div>
-        <div class="note"></div>
     </main>
 
+    <script src="scripts/get-data.js"></script>
+    <script src="scripts/tasks-module.js"></script>
     <script src="scripts/main.js"></script>
 </body>
 </html>

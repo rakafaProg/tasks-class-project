@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-size: 20px;
+    
 }
 
 body {
@@ -26,6 +26,7 @@ form {
         width: 80%;
         margin: 10px auto;
         padding: 2px;
+        font-size: 20px;
     }
 
     input {
@@ -52,34 +53,84 @@ main {
         background-image: url('../images/notebg.png');
         height: 250px;
         width: 200px;
-        padding: 30px 15px 0 10px;
+        padding: 18px 24px 0 6px;
         float: left;
         margin: 10px;
         position: relative;
+        
+        /* for fade out effect */
+        opacity: 1;
+        -webkit-transition: all 1000ms linear;
+        transition: all 1000ms linear;
+        
 
         .content {
-            height: 170px;
+            height: 190px;
+            width: 170px;
             overflow-x: auto;
+            font-family: 'Annie Use Your Telescope';
+            font-size: 20px;
+            font-weight: 600;
+            
+            
         }
 
         .date-and-time {
             color: grey;
+            font-size: 16px;
         }
         
-        &:hover .delete {
-            visibility: visible;
+        &[data-mode='reading']{ 
+            &:hover {
+                .delete , .edit{
+                    visibility: visible;
+                } 
+            }
+            
+            .content {
+                background-color: transparent;
+                border-style: none;
+                pointer-events: none;
+            }
         }
         
-        .delete {
+        
+        &[data-mode='writing']{ 
+            &:hover {
+                .save {
+                    visibility: visible;
+                } 
+            }
+        }
+        
+        .delete, .edit, .save {
             visibility: hidden;
             position: absolute;
             top: 20px;
-            right: 25px;
-            
-            color: rgb(255,0,0);
-            text-shadow: 2px 2px #660000;
-            
+
+            text-shadow: 2px 2px #666666;
+
             cursor: pointer;
+
+            &:active {
+                font-size: 90%;
+            }
+        }
+
+        .delete {
+            right: 25px;
+            color: rgb(255,0,0);
+        }
+
+        .edit {
+            right: 55px;
+            color: rgb(0,166,255);
+        }
+
+        .save {
+            right: 25px;
+            color: rgb(0,255,0);
+            font-size: 120%;
         }
     }
 }
