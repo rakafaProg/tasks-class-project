@@ -92,6 +92,7 @@ function editHandler(e) {
     let taskId = e.getAttribute('data-task-id');
     let task = document.querySelector('div[data-task-id="'+taskId+'"] .content');
     document.querySelector('div[data-task-id="'+taskId+'"]').setAttribute('data-mode','writing');
+    task.removeAttribute('readonly');
     console.log(task);
 }
 
@@ -99,10 +100,12 @@ function saveHandler(e) {
     console.log('saveHandler');
     let taskId = e.getAttribute('data-task-id');
     document.querySelector('div[data-task-id="'+taskId+'"]').setAttribute('data-mode','reading');
-    let taskContent = document.querySelector('div[data-task-id="'+taskId+'"] .content');
-    tasks.updateTask(taskId, taskContent.value);
+    let task = document.querySelector('div[data-task-id="'+taskId+'"] .content');
+    tasks.updateTask(taskId, task.value);
+    task.setAttribute('readonly', '');
 }
 
 window.addEventListener('load', function(){
     tasks.loadData();
+    
 });

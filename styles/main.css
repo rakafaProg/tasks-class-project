@@ -71,7 +71,6 @@ main .note[data-mode='reading']:hover .edit {
 main .note[data-mode='reading'] .content {
   background-color: transparent;
   border-style: none;
-  pointer-events: none;
 }
 main .note[data-mode='writing']:hover .save {
   visibility: visible;
