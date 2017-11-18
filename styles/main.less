@@ -1,6 +1,10 @@
+@import (less) "container.less";
+
+
+// All sizes - depend on supplied images sizes.
+
 * {
     box-sizing: border-box;
-    
 }
 
 body {
@@ -13,123 +17,30 @@ header {
     width: 300px;
     height: 50px;
     margin: 30px auto 15px;
-
 }
+
+
 
 form {
     background-image: url('../images/formbg.jpg');
     width: 600px;
-    padding: 10px 0 10px 85px;
+    padding: 6px 85px; // Fit content into BG-image style
     margin: auto;
 
+    // General setting for form's elements
     * {
-        width: 80%;
+        width: 100%;
         margin: 10px auto;
-        padding: 2px;
-        font-size: 20px;
     }
 
-    input {
-        width: 39%;
-        margin-left: 0.5%;
-    }
-    
+    // Styling when class required is active
     .required {
         border: 3px solid rgb(255,0,0);
     }
     
     .error-msg {
         color: rgb(255,0,0);
+        font-size: 20px;
         font-weight: 700;
-    }
-}
-
-
-main {
-    margin: 10px auto;
-    width: 95%;
-
-    .note {
-        background-image: url('../images/notebg.png');
-        height: 250px;
-        width: 200px;
-        padding: 18px 24px 0 6px;
-        float: left;
-        margin: 10px;
-        position: relative;
-        
-        /* for fade out effect */
-        opacity: 1;
-        -webkit-transition: all 1000ms linear;
-        transition: all 1000ms linear;
-        
-
-        .content {
-            height: 190px;
-            width: 170px;
-            overflow-x: auto;
-            font-family: 'Annie Use Your Telescope';
-            font-size: 20px;
-            font-weight: 600;
-            
-            
-        }
-
-        .date-and-time {
-            color: grey;
-            font-size: 16px;
-        }
-        
-        &[data-mode='reading']{ 
-            &:hover {
-                .delete , .edit{
-                    visibility: visible;
-                } 
-            }
-            
-            .content {
-                background-color: transparent;
-                border-style: none;
-            }
-        }
-        
-        
-        &[data-mode='writing']{ 
-            &:hover {
-                .save {
-                    visibility: visible;
-                } 
-            }
-        }
-        
-        .delete, .edit, .save {
-            visibility: hidden;
-            position: absolute;
-            top: 20px;
-
-            text-shadow: 2px 2px #666666;
-
-            cursor: pointer;
-
-            &:active {
-                font-size: 90%;
-            }
-        }
-
-        .delete {
-            right: 25px;
-            color: rgb(255,0,0);
-        }
-
-        .edit {
-            right: 55px;
-            color: rgb(0,166,255);
-        }
-
-        .save {
-            right: 25px;
-            color: rgb(0,255,0);
-            font-size: 120%;
-        }
     }
 }

@@ -1,0 +1,105 @@
+
+
+// Styling note's container: 
+
+#container {
+    margin: 10px auto;
+    width: 95%;
+
+    // Single note style: 
+    .note {
+        background-image: url('../images/notebg.png');
+        height: 250px;
+        width: 200px;
+        padding: 18px 24px 0 6px; // To make content fit in image style
+        
+        float: left;
+        margin: 10px;
+        
+        
+        position: relative;  // For inner delete, edit, save elemnts.
+        
+        
+        /* for fade out effect */
+        opacity: 1;
+        -webkit-transition: all 1000ms linear;
+        transition: all 1000ms linear;
+        
+
+        
+        .content {
+            height: 190px;
+            width: 170px;
+            
+            // Side scroll in case of over flow:
+            overflow-x: auto;
+            
+            // Fun google-font ;) 
+            font-family: 'Annie Use Your Telescope', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        
+        .date-and-time {
+            color: grey;
+            font-size: 16px;
+        }
+        
+        // On reading mode - content is uneditable, 
+        // and delete, edit controls are shown on hover.
+        &[data-mode='reading']{ 
+            &:hover {
+                .delete , .edit{
+                    visibility: visible;
+                } 
+            }
+            
+            .content {
+                background-color: transparent;
+                border-style: none;
+            }
+        }
+        
+        // On writing mode - shows save control
+        &[data-mode='writing']{ 
+            &:hover {
+                .save {
+                    visibility: visible;
+                } 
+            }
+        }
+        
+        
+        .delete, .edit, .save {
+            // Position and style for edit, delete controls
+            visibility: hidden;
+            position: absolute;
+            top: 20px;
+
+            text-shadow: 2px 2px #666666;
+
+            cursor: pointer;
+
+            &:active {
+                font-size: 90%;
+            }
+        }
+
+        .delete {
+            right: 25px;
+            color: rgb(255,0,0);
+        }
+
+        .edit {
+            right: 55px;
+            color: rgb(0,166,255);
+        }
+
+        .save {
+            right: 25px;
+            color: rgb(0,255,0);
+            font-size: 120%;
+        }
+    }
+}
