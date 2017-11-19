@@ -1,37 +1,46 @@
 function tasksModule(url, htmlFather) {
-    const tasksTemplate = templateModule(url);
+    "use strict";
+    
+    // Initiate template module
+    const tasksTemplate = templateModule(url, loadData);
     
     let tasksArray = [];
     let index = 0;
     
     
     function loadData() {
-       tasksJSON = window.localStorage.getItem('tasks');
+        // Get data from local storage, and add it to DOM
+        let tasksJSON = window.localStorage.getItem('tasks');
         if (tasksJSON) {
             tasksArray = JSON.parse(tasksJSON);
             index = tasksArray.length;
 
-            for (let i = 0; i < tasksArray.length; i++) {
-                if(tasksArray[i]) {
+            for (let i = 0; i < tasksArray.length; i++) 
+                if(tasksArray[i]) 
                     htmlFather.appendChild(getTaskHTML(i));
-                }
-            }
         } 
     }
     
     
-    
+    // Task constractor
     function Task (content, date, time) {
         this.content = content;
         this.date = date;
         this.time = time;
         this.id = index;
     }
-
-    function createTask (content, date, time) {
-        tasksArray[index] = new Task(content, date, time);
-        index ++;
+    
+    function saveToStorage() {
         window.localStorage.setItem('tasks', JSON.stringify(tasksArray));
+    }
+
+    
+    function createTask (content, date, time) {
+        // Add new task to array, and storage
+        tasksArray[index] = new Task(content, date, time);
+        saveToStorage();
+        
+        index ++;
         return index -1;
     }
     
@@ -40,24 +49,22 @@ function tasksModule(url, htmlFather) {
     }
     
     function updateTask (taskIndex, content) {
+        // Update task in array, and update storage
         tasksArray[taskIndex].content = content;
-        
-        window.localStorage.setItem('tasks', JSON.stringify(tasksArray));
-        
-        return tasksTemplate.toHTML(tasksArray[taskIndex]);
+        saveToStorage();
     }
     
     function deleteTask (taskIndex) {
+        // Delete task from array and storage
         tasksArray[taskIndex] = null;
-        window.localStorage.setItem('tasks', JSON.stringify(tasksArray));
+        saveToStorage();
     }
     
     return {
+        // Return CRUD functions
         createTask: createTask,
         getTaskHTML: getTaskHTML,
         updateTask: updateTask,
-        deleteTask: deleteTask,
-        allTasks: tasksArray,
-        loadData: loadData
+        deleteTask: deleteTask
     }
 }

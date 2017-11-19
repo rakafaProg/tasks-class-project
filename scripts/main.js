@@ -105,7 +105,4 @@ function saveHandler(e) {
     task.setAttribute('readonly', '');
 }
 
-window.addEventListener('load', function(){
-    tasks.loadData();
-    
-});
+
