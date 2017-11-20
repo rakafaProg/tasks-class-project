@@ -22,11 +22,28 @@ function tasksModule(url, htmlFather) {
     }
     
     function validateDate (date){
-        return 1;
+        // Valid date formats: 
+        let validationRole1 = /^\d{2}([./-])\d{2}\1\d{4}$/;
+        let validationRole2 = /^\d{4}([./-])\d{2}\1\d{2}$/;
+        
+        if (validationRole1.exec(date))
+            return true;
+        if(validationRole2.exec(date))
+            return true;
+        
+        return false;
     }
     
     function validateTime (time){
-        return 1;
+        
+        if (!time)
+            return true;
+        
+        let validationRole1 = /^\d{2}([:])\d{2}$/;
+        if (validationRole1.exec(time))
+            return true;
+        
+        return false;
     }
     
     

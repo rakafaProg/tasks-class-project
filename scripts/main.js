@@ -33,13 +33,18 @@ const tasks = tasksModule('templates/task-template.html', document.getElementByI
             // Create task with user's data: 
             let tempTaskId = tasks.createTask(contentHTML.value, dateHTML.value, timeHTML.value);
             
+            if (tempTaskId < 0) {
+                // Date / Time validation did not pass
+                formErrMsgHTML.innerHTML = '*Please use valid date and time formats';
+            } else {
+                
             // Add the new task to the DOM
             let task = tasks.getTaskHTML(tempTaskId);
             containerHTML.appendChild(task);
             
             // Reset the fields of the form
             formMainHTML.reset();
-            
+            }
         } else { 
             // Did not pass validation, therefore - mssging to the client.
             formErrMsgHTML.innerHTML = '*Please fill up all the required fields';
