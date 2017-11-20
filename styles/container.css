@@ -20,9 +20,6 @@
   height: 190px;
   width: 170px;
   overflow-x: auto;
-  font-family: 'Annie Use Your Telescope', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
 }
 #container .note .date-and-time {
   color: grey;

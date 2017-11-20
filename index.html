@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,29 +11,30 @@
     <link rel="icon" href="images/icon.ico">
 </head>
 
-<body>
-    <header>
+    <body>
+        <header>
 
-    </header>
+        </header>
 
-    <form novalidate id='frmNotes'>
-        <textarea class="form-control" id='contentInput' rows="5" placeholder="Note content" required></textarea>
-        <input id='dateInput' type="date" class="form-control" required>
-        <input id='timeInput' type="time"  class="form-control">
-        <button id="btnSendForm" class="btn btn-primary">Add Note</button>
-        <div class="error-msg"></div>
-    </form>
+        <form novalidate id='frmNotes'>
+            <textarea class="form-control special-font" id='contentInput' rows="5" placeholder="Note content" required></textarea>
+            <input id='dateInput' type="date" class="form-control" required>
+            <input id='timeInput' type="time" class="form-control">
+            <button id="btnSendForm" class="btn btn-primary  special-font">Add Note</button>
+            <div class="error-msg special-font"></div>
+        </form>
 
-    <main id='container'>
-        <!--  
-            Here we will have all the notes. (using JS)
-        -->
-    </main>
+        <main id='container'>
+            <!--  
+                Here we will have all the notes. (using JS)
+            -->
+        </main>
 
-    
-    <script src="scripts/get-data.js"></script>
-    <script src="scripts/tasks-module.js"></script>
-    <script src="scripts/event-handlers.js"></script>
-    <script src="scripts/main.js"></script>
-</body>
+
+        <script src="scripts/get-data.js"></script>
+        <script src="scripts/tasks-module.js"></script>
+        <script src="scripts/event-handlers.js"></script>
+        <script src="scripts/main.js"></script>
+    </body>
+
 </html>

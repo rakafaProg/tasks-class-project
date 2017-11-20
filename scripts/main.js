@@ -35,7 +35,7 @@ const tasks = tasksModule('templates/task-template.html', document.getElementByI
             
             if (tempTaskId < 0) {
                 // Date / Time validation did not pass
-                formErrMsgHTML.innerHTML = '*Please use valid date and time formats';
+                formErrMsgHTML.innerHTML = '* Please use valid date and time formats';
             } else {
                 
             // Add the new task to the DOM
@@ -47,7 +47,7 @@ const tasks = tasksModule('templates/task-template.html', document.getElementByI
             }
         } else { 
             // Did not pass validation, therefore - mssging to the client.
-            formErrMsgHTML.innerHTML = '*Please fill up all the required fields';
+            formErrMsgHTML.innerHTML = '* Please fill up all the required fields';
         }
         
     });

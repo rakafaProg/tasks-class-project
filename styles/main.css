@@ -20,9 +20,6 @@
   height: 190px;
   width: 170px;
   overflow-x: auto;
-  font-family: 'Annie Use Your Telescope', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
 }
 #container .note .date-and-time {
   color: grey;
@@ -76,13 +73,20 @@ body {
 header {
   background-image: url('../images/title.png');
   width: 300px;
+  max-width: 100%;
   height: 50px;
   margin: 30px auto 15px;
+}
+.special-font {
+  font-family: 'Annie Use Your Telescope', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
 }
 form {
   background-image: url('../images/formbg.jpg');
   width: 600px;
-  padding: 6px 85px;
+  max-width: 100%;
+  padding: 6px 10px 6px 85px;
   margin: auto;
 }
 form * {
@@ -94,6 +98,7 @@ form .required {
 }
 form .error-msg {
   color: #ff0000;
-  font-size: 20px;
+  padding: 5px;
+  font-size: 28px;
   font-weight: 700;
 }
