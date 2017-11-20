@@ -1,46 +1,53 @@
-//(function () {
+// Initiate tasks module
+// Has to be global
+const tasks = tasksModule('templates/task-template.html', document.getElementById('container'));
+
+(function() {
     "use strict";
-    
-    
     
     const FORM_ID = 'frmNotes';
     
-    // set up DOM variables
+    // Set up DOM variables
     
     const containerHTML = document.getElementById('container');
     const formErrMsgHTML = document.querySelector('#' + FORM_ID + ' .error-msg');
+    const formMainHTML = document.getElementById(FORM_ID);
     
-    // form inputs: 
+    // Form inputs: 
     const contentHTML = document.getElementById('contentInput');
     const dateHTML = document.getElementById('dateInput');
     const timeHTML = document.getElementById('timeInput');
 
+    
 
-    const tasks = tasksModule('templates/task-template.html', containerHTML);
-
-    // set up events:
+    // On form submit: 
     document.getElementById('btnSendForm').addEventListener('click', function (e) {
         // prevents refreshing the page when hitting the button
         e.preventDefault();
         
         if (validateForm(FORM_ID)) {
+            // passed the validating: 
             // clear client error massage
             formErrMsgHTML.innerHTML = '';
             
-            let tempTask = tasks.createTask(contentHTML.value, dateHTML.value, timeHTML.value);
-            let task = tasks.getTaskHTML(tempTask);
+            // Create task with user's data: 
+            let tempTaskId = tasks.createTask(contentHTML.value, dateHTML.value, timeHTML.value);
+            
+            // Add the new task to the DOM
+            let task = tasks.getTaskHTML(tempTaskId);
             containerHTML.appendChild(task);
             
-            document.getElementById(FORM_ID).reset();
+            // Reset the fields of the form
+            formMainHTML.reset();
             
-        } else { // not all the required field are filled, therefore - mssging to the client.
+        } else { 
+            // Did not pass validation, therefore - mssging to the client.
             formErrMsgHTML.innerHTML = '*Please fill up all the required fields';
         }
         
-        
-
     });
 
+    
     function validateForm(formId) {
         // get required fileds from the form
         const requiredFields = document.querySelectorAll('#' + formId + ' [required]');
@@ -59,50 +66,13 @@
         return isValid;
     }
     
-    
-    
-    
-    
+})();
+
+
     
 
-//}());
 
-function deleteHandler(e) {
-    console.log('deleteHandler');
-    let taskId = e.getAttribute('data-task-id');
-    console.log('taskId:' + taskId);
-    tasks.deleteTask(taskId);
-    let task = document.querySelector('div[data-task-id="'+taskId+'"]');
-    console.log(task);
-    
-    task.style.opacity = 0;
-    task.style.width = 0;
-    task.style.padding = 0;
-    task.style.margin = 0;
-    setTimeout(function(){
-        task.parentNode.removeChild(task);
-    }, 2000);
-    
-    
-    
-}
-    
-function editHandler(e) {
-    console.log('editHandler');
-    let taskId = e.getAttribute('data-task-id');
-    let task = document.querySelector('div[data-task-id="'+taskId+'"] .content');
-    document.querySelector('div[data-task-id="'+taskId+'"]').setAttribute('data-mode','writing');
-    task.removeAttribute('readonly');
-    console.log(task);
-}
 
-function saveHandler(e) {
-    console.log('saveHandler');
-    let taskId = e.getAttribute('data-task-id');
-    document.querySelector('div[data-task-id="'+taskId+'"]').setAttribute('data-mode','reading');
-    let task = document.querySelector('div[data-task-id="'+taskId+'"] .content');
-    tasks.updateTask(taskId, task.value);
-    task.setAttribute('readonly', '');
-}
+
 
 

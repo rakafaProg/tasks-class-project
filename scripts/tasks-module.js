@@ -21,6 +21,14 @@ function tasksModule(url, htmlFather) {
         } 
     }
     
+    function validateDate (date){
+        return 1;
+    }
+    
+    function validateTime (time){
+        return 1;
+    }
+    
     
     // Task constractor
     function Task (content, date, time) {
@@ -36,6 +44,12 @@ function tasksModule(url, htmlFather) {
 
     
     function createTask (content, date, time) {
+        // Validating data before adding task
+        if (!validateDate(date))
+            return -1;
+        if (!validateTime(time))
+            return -1;
+        
         // Add new task to array, and storage
         tasksArray[index] = new Task(content, date, time);
         saveToStorage();
