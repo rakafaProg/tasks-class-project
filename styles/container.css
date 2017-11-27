@@ -3,6 +3,10 @@
   margin: 10px auto;
   width: 95%;
 }
+#container .template-holder {
+  opacity: 0;
+  transition: all 1000ms linear;
+}
 #container .note {
   background-image: url('../images/notebg.png');
   height: 250px;

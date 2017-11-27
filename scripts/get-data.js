@@ -34,6 +34,11 @@ function templateModule(url, onReady) {
         
         let tempHTML = document.createElement('div');
         tempHTML.innerHTML = htmlString;
+        tempHTML.className = 'template-holder';
+        
+        // Handle fade in effect
+        setTimeout(function(){tempHTML.style.opacity = '100';},50);
+        
         
         return tempHTML;        
     }

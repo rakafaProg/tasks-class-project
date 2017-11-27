@@ -41,6 +41,7 @@ const tasks = tasksModule('templates/task-template.html', document.getElementByI
                 // Add the new task to the DOM
                 let task = tasks.getTaskHTML(tempTaskId);
                 containerHTML.appendChild(task);
+                
 
                 // Reset the fields of the form
                 formMainHTML.reset();
